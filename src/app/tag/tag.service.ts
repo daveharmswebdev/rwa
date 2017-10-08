@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import '../rxjs-extensions';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TagService {
@@ -9,7 +9,7 @@ export class TagService {
 
   constructor(private http: Http) {}
 
-  getCategories(): Observable<any[]> {
+  getTags(): Observable<any[]> {
     return this.http.get(this._serviceUrl).map(res => res.json());
   }
 }
